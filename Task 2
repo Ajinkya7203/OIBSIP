@@ -1,0 +1,71 @@
+import java.util.*;
+public class Numberguessgame
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        while(true)
+        {
+            System.out.println("_________________________");
+            System.out.println("_________________________");
+            System.out.println();
+            System.out.println("1. Start game");
+            System.out.println("2. Display previous scores");
+            System.out.println("3. Exit Game");
+            System.out.println("Enter the number of your preffered choice");
+            int x = sc.nextInt();
+            if(x == 1)
+            {start();}
+            if(x == 2)
+            {System.out.println(s);}
+            if(x == 3) {
+                System.out.println("THANKYOU FOR PLAYING");
+                break;
+            }
+        }
+    }
+    static int score = 0;
+    static ArrayList <Integer> s = new ArrayList<Integer>();
+    public static void start()
+    {
+        score = 0;
+        System.out.println("Enter minimum and maximum range of number");
+        int no = random();
+        guess(no);
+    }
+    public static void guess(int n)
+    {
+        Scanner g = new Scanner(System.in);
+        System.out.println("guess the number");
+        int a = g.nextInt();
+        if(a == n) {
+            score ++;
+            display(score);
+        }
+        if(a < n) {
+            System.out.println("Greater");
+            score++;
+            guess(n);
+        }
+        if(a > n) {
+            System.out.println("Smaller");
+            score++;
+            guess(n);
+        }
+    }
+    public static void display(int score)
+    {
+        s.add(score);
+        System.out.println("your score is " + score);
+    }
+    public static int random()
+    {
+        Scanner r = new Scanner(System.in);
+        System.out.println("enter min");
+        int min = r. nextInt();
+        System.out.println("enter max");
+        int max = r. nextInt();
+        Random no = new Random();
+        return no.nextInt(max - min);
+    }
+}
