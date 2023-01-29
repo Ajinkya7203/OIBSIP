@@ -1,0 +1,97 @@
+import java.util.*;
+class bank
+{
+    void bank()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("select the option among given below");
+        System.out.println("1.Login");
+        System.out.println("2.End");
+        int c = sc.nextInt();
+        if(c ==  2)
+        {
+            System.out.println("=====================");
+            System.out.println("OPERATION ENDED");
+        }
+        else if(c == 1)
+        {
+            System.out.println("=====================");
+            System.out.println("ENTER USER NAME");
+            String un = sc.next();
+            System.out.println();
+            System.out.println("ENTER PASSWORD");
+            String pass = sc.next();
+            System.out.println();
+            banking();
+        }
+    }
+    public static void banking()
+    {
+        Scanner sc =  new Scanner(System.in);
+        int balance = 0;
+        while(true)
+        {
+            System.out.println("=====================");
+            System.out.println("Select Preffered Operation");
+            System.out.println("1.Withdraw");
+            System.out.println("2.Deposit");
+            System.out.println("3.Transfer");
+            System.out.println("4.Check Balance");
+            System.out.println("5.End Operation");
+            int c = sc.nextInt();
+            if(c ==1)
+            {
+                System.out.println("Enter Withdrawal Amount");
+                int w = sc.nextInt();
+                if(w > balance)
+                {
+                    System.out.println("Insufficient Balance");
+                }
+                else if (w <= balance)
+                {
+                    balance = balance - w;
+                    System.out.println("Please Collect Your Cash");
+                }
+            }
+            else if(c == 2)
+            {
+                System.out.println("Enter Deposit Amount");
+                int d = sc.nextInt();
+                balance = balance + d;
+            }
+            else if(c == 3)
+            {
+                System.out.println("Enter Account Number You Want to Transfer");
+                int ac = sc.nextInt();
+                System.out.println("Enter Amount to Transfer");
+                int tr = sc.nextInt();
+                if(tr > balance)
+                {
+                    System.out.println("Insufficient Balance");
+                }
+                else if (tr <= balance)
+                {
+                    balance = balance - tr;
+                    System.out.println("Amount Transferred");
+                }
+            }
+            else if(c == 4)
+            {
+                System.out.println("Your Account Balance is " + balance);
+            }
+            else if(c == 5)
+            {
+                System.out.println("THANKYOU FOR USING OUR SERVICE");
+                System.out.println("OPERATION ENDED");
+                break;
+            }
+        }
+    }
+}
+public class atmjava
+{
+    public static void main(String[] args) {
+        bank b = new bank();
+        b.bank();
+    }
+}
